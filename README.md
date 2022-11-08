@@ -74,3 +74,4 @@ ls /sys/class/udc > UDC  #当我们执行完这条命令后，系统就自动的
 #### 参考引用
 
 * https://github.com/milador/RaspberryPi-Joystick
+* https://www.youtube.com/watch?v=ufzLQ4PSwW4
