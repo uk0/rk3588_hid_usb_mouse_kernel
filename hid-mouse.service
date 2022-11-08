@@ -1,0 +1,20 @@
+[Unit]
+Description=hid-mouse-systemd
+After=bluetooth.target
+After=multi-user.target
+Requires=bluetooth.target
+
+[Service]
+ExecStart=Eventtohid-mouse
+WorkingDirectory=/home/mouse/
+Type=idle
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=mouse-hid
+ExecStartPre=/bin/sleep 10
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

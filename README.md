@@ -6,6 +6,8 @@
 
 * rk3588 详细信息 `https://www.cnx-software.com/2021/12/16/rockchip-rk3588-datasheet-sbc-coming-soon/`
 * hid 资料 `https://winddoing.github.io/post/5098.html`
+* hid `https://zhuanlan.zhihu.com/p/387793592`
+* hid `https://forums.raspberrypi.com/viewtopic.php?t=234495`
 
 
 
@@ -44,7 +46,7 @@ echo "0x0104" > idVendor # 写入我们自定义的usb vid
 echo "0x1d6b" > idProduct# 写入我们自定义的usb pid
 mkdir strings/0x409 # 创建字符串文件夹
 echo "831409-0000" > strings/0x409/serialnumber
-echo "Logitech" > strings/0x409/manufacturer
+echo "Logitech，Inc" > strings/0x409/manufacturer
 echo "Logitech G Pro Wireless" > strings/0x409/product
 # 创换配置功能
 #$mkdir configs/<name>.<number>
@@ -66,3 +68,9 @@ ln -s functions/hid.usb0 configs/c.1
 ls /sys/class/udc > UDC  #当我们执行完这条命令后，系统就自动的帮我们创建了ubs hid 设备，
 
 ```
+
+
+
+#### 参考引用
+
+* https://github.com/milador/RaspberryPi-Joystick
