@@ -1,35 +1,4 @@
-#### rk3588_hid_usb_mouse_kernel
 
-
-
-#### 资料 
-
-* rk3588 详细信息 `https://www.cnx-software.com/2021/12/16/rockchip-rk3588-datasheet-sbc-coming-soon/`
-* hid 资料 `https://winddoing.github.io/post/5098.html`
-
-
-
-#### 实现方式
-
-
-* 使用Linux gadget 驱动框架，在应用层使用脚本方式实现。
-* make ARCH=arm64 menuconfig `修改内核编译好了从新烧到板子内` 查看是否包含`libcomposite.ko`
-
-
-#### quick
-
-* Install the necessary packages
-```bash
-sudo apt-get update
-sudo apt-get install build-essential python-dev python-pip git
-sudo apt-get install vim ctags screen build-essential
-```
-
-* 创建HID配置信息
-
-```bash
-#in mod.sh
-# left meta right x y 5 buttons
 #!/bin/bash
 # 添加mod
 CONFIGFS_HOME=/sys/kernel/config
@@ -64,5 +33,3 @@ echo -ne \\x05\\x01\\x09\\x02\\xa1\\x01\\x09\\x01\\xa1\\x00\\x05\\x09\\x19\\x01\
 ln -s functions/hid.usb0 configs/c.1
 # Activate device
 ls /sys/class/udc > UDC  #当我们执行完这条命令后，系统就自动的帮我们创建了ubs hid 设备，
-
-```
